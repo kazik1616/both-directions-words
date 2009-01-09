@@ -156,4 +156,5 @@ for root, dirs, files in os.walk('data/txt'):
 		file = open(root+"/"+name,'r+')
 		text = file.read()
 		#print text
+		words = getwords(text)
 
