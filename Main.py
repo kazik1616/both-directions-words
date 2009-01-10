@@ -13,7 +13,7 @@ def getpalindrom(str):
 
 def getwords(txt):
   # Split words by all non-alpha characters
-  words=re.compile('[0-9\t-:{};"()., ?!]+').split(txt)
+  words=re.compile('[0-9\t-:{};"()., ?!_-\<\>]+').split(txt)
   # Convert to lowercase
   return [word.lower( ) for word in words if word!='']
 
