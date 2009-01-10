@@ -76,16 +76,15 @@ wc = {} # Lista słów wraz z liczbą dokumentów w których one wystąpiły
 
 for root, dirs, files in os.walk('data/txt'):
 	
-	print root
+	
 	for name in files:
-		print name
-		file = open(root+"/"+name,'r+')
+		filepath = root+"/"+name
+		print filepath
+		file = open(filepath,'r+')
 		text = file.read()
 		text = unicode(text, 'utf-8')
 
 		for word in getwords(text):
-			if word == word[::-1]:
-    				print word
 			allwords.add(word)
 
 
