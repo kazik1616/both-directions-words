@@ -8,6 +8,7 @@ from sets import Set
 allwords =  Set() #list of all found words
 splitter = re.compile('[\s\d_\-\>.,\<:;*?~()\\$!\'\/"]+') #words splitter
 
+
 def getpalindrom(str):
 	return str[::-1] #What a hack :)
 
@@ -17,58 +18,6 @@ def getwords(txt):
   words=splitter.split(txt)
   # Convert to lowercase
   return [word.lower( ) for word in words if word!='']
-
-
-
-
-def createoutput():
-	
-	sortedwords = wc.keys()
-	sortedwords.sort()
-
-	file = codecs.open('films.arff','w','utf-8')
-	
-	file.write('@RELATION films\n');
-
-	for w in sortedwords:
-		file.write('@ATTRIBUTE ' + w + ' {t,n}\n');
-
-	
-	file.write('@ATTRIBUTE wszystkichslow REAL\n');
-	file.write('@ATTRIBUTE roznychslow REAL\n');
-	file.write('@ATTRIBUTE ocena {good, neutral, bad}\n\n');
-		
-	file.write('@DATA\n');	
-
-	for review in reviews.values():
-
-
-		#zliczanie najczęściej pojawiającego się słowa
-		mostrecent = ''
-		mostrecentocc = 0
-
-		for w in sortedwords: 
-
-			occurences =  review.occurences(w)
-
-			#Waga będzie niczym alkohol - w promilach
-			#weight = occurences * idfs[w] * 1000
-			
-			#file.write('%d,'%weight)
-
-			if occurences > 0:
-				file.write('t,')
-			else:
-				file.write('n,')
-
-
-		grade = review.grade
-		wordsno = review.wordsno
-		differentwords = review.differentwords()
-
-		file.write('%d,%d,%s\n'%(wordsno, differentwords, grade))
-
-	file.close();
 
 
 for root, dirs, files in os.walk('data/txt'):
