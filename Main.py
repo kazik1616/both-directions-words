@@ -8,7 +8,7 @@ from sets import Set
 allwords =  Set()
 
 def getpalindrom(str):
-	return str[::-1]
+	return str[::-1] #What a hack :)
 
 
 def getwords(txt):
@@ -69,14 +69,8 @@ def createoutput():
 
 	file.close();
 
-reviews = {} 
-wc = {} # Lista słów wraz z liczbą dokumentów w których one wystąpiły
-
-
 
 for root, dirs, files in os.walk('data/txt'):
-	
-	
 	for name in files:
 		filepath = root+"/"+name
 		print filepath
@@ -88,3 +82,7 @@ for root, dirs, files in os.walk('data/txt'):
 			allwords.add(word)
 
 
+for word in allwords:
+	palindrom = getpalindrom(word)
+	if palindrom in allwords:
+		print word,' ',palindrom
