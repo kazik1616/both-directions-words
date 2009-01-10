@@ -7,7 +7,7 @@ from sets import Set
 
 allwords =  Set() #list of all found words
 splitter = re.compile('[\s\d_\-\>.,\<:;*?~()\\$!\'\/"]+') #words splitter
-
+txtext = [".txt"] #we oricess only txt files
 
 def getpalindrom(str):
 	return str[::-1] #What a hack :)
@@ -21,15 +21,17 @@ def getwords(txt):
 
 
 for root, dirs, files in os.walk('data/txt'):
+	
 	for name in files:
 		filepath = root+"/"+name
-		print 'Processing ',filepath
-		file = open(filepath,'r+')
-		text = file.read()
-		text = unicode(text, 'utf-8')
+		if os.path.splitext(filepath)[1] in txtext:	
+			print 'Processing ',filepath
+			file = open(filepath,'r+')
+			text = file.read()
+			text = unicode(text, 'utf-8')
 
-		for word in getwords(text):
-			allwords.add(word)
+			for word in getwords(text):
+				allwords.add(word)
 
 
 print 'All different words found: ',len(allwords)
