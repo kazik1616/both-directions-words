@@ -1,0 +1,32 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{latexsym}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[MeX]{polski}
+
+
+\author{Krzysztof Kaźmierczyk}
+\title{Simple text processing \\ 
+\large{Detect and write down all the words that can be read in both directions}} 
+ 
+
+\begin{document}
+
+\maketitle 
+
+\section{Realizacja projektu}
+Projekt został zrealizowany w języku \texttt{Python} ze względu na dosyć dobre wsparcie kodowania utf-8. Do zebrania słów występujących w języku polskim użyto następujących tekstów:
+\begin{itemize}
+\item B. Prus - Faraon
+\item B. Prus - Lalka
+\item H. Sienkiewicz - Potop
+\item h. Sienkiewicz - Quo Vadis
+\item S. Żeromski - Popioły
+\item S. Żeromski - Przedwiośnie
+\end{itemize}
+
+
+\section{Wyniki}
+W tekście znaleziono 110225 różnych słów. Wśród tych słów znaleziono 357 słów, które można czytać w dwie strony, z czego 94 słowa są palindromami.
+
+\end{document}  
