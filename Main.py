@@ -36,8 +36,17 @@ for root, dirs, files in os.walk('data/txt'):
 
 print 'All different words found: ',len(allwords)
 
+bothdirections = 0
+palindroms = 0
+
 print 'List of Words read in both directions:'
 for word in allwords:
 	palindrom = getpalindrom(word)
 	if palindrom in allwords:
 		print word,'\t=>\t',palindrom
+		bothdirections += 1
+		if palindrom == word:
+			palindroms += 1
+
+print 'All words that can be read in both directions: ',bothdirections
+print 'Numbeer of palindroms: ', palindroms
